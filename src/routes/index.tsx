@@ -1,24 +1,34 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "The Right to Power" },
+      { name: "description", content: "A project based learning assignment on The Right to Power." },
+      { property: "og:title", content: "The Right to Power" },
+      { property: "og:description", content: "A project based learning assignment on The Right to Power." },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="mx-auto max-w-5xl px-5 py-20">
+      <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">Project Based Learning</p>
+      <h1 className="text-5xl leading-tight md:text-8xl">
+        The Right <span className="bg-accent px-2">to Power</span>
+      </h1>
+      <div className="mt-12 grid gap-4 md:grid-cols-2">
+        <Link to="/policy-brief" className="border-2 bg-card p-6 transition-transform hover:-translate-y-1">
+          <h2 className="text-2xl">Policy Brief →</h2>
+          <p className="mt-2 text-muted-foreground">Read our research and recommendations.</p>
+        </Link>
+        <Link to="/ad-campaign" className="border-2 bg-card p-6 transition-transform hover:-translate-y-1">
+          <h2 className="text-2xl">Ad Campaign →</h2>
+          <p className="mt-2 text-muted-foreground">See how we're spreading the message.</p>
+        </Link>
+      </div>
+    </main>
   );
 }
