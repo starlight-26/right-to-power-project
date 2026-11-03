@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdCampaignRouteImport } from './routes/ad-campaign'
+import { Route as PolicyBriefRouteImport } from './routes/policy-brief'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdCampaignRoute = AdCampaignRouteImport.update({
+  id: '/ad-campaign',
+  path: '/ad-campaign',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolicyBriefRoute = PolicyBriefRouteImport.update({
+  id: '/policy-brief',
+  path: '/policy-brief',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ad-campaign': typeof AdCampaignRoute
+  '/policy-brief': typeof PolicyBriefRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ad-campaign': typeof AdCampaignRoute
+  '/policy-brief': typeof PolicyBriefRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ad-campaign': typeof AdCampaignRoute
+  '/policy-brief': typeof PolicyBriefRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/ad-campaign' | '/policy-brief'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/ad-campaign' | '/policy-brief'
+  id: '__root__' | '/' | '/ad-campaign' | '/policy-brief'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdCampaignRoute: typeof AdCampaignRoute
+  PolicyBriefRoute: typeof PolicyBriefRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ad-campaign': {
+      id: '/ad-campaign'
+      path: '/ad-campaign'
+      fullPath: '/ad-campaign'
+      preLoaderRoute: typeof AdCampaignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/policy-brief': {
+      id: '/policy-brief'
+      path: '/policy-brief'
+      fullPath: '/policy-brief'
+      preLoaderRoute: typeof PolicyBriefRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdCampaignRoute: AdCampaignRoute,
+  PolicyBriefRoute: PolicyBriefRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
