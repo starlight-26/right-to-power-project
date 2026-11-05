@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdCampaignRouteImport } from './routes/ad-campaign'
+import { Route as EnglishComponentRouteImport } from './routes/english-component'
 import { Route as PolicyBriefRouteImport } from './routes/policy-brief'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const AdCampaignRoute = AdCampaignRouteImport.update({
   path: '/ad-campaign',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnglishComponentRoute = EnglishComponentRouteImport.update({
+  id: '/english-component',
+  path: '/english-component',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PolicyBriefRoute = PolicyBriefRouteImport.update({
   id: '/policy-brief',
   path: '/policy-brief',
@@ -32,30 +38,34 @@ const PolicyBriefRoute = PolicyBriefRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ad-campaign': typeof AdCampaignRoute
+  '/english-component': typeof EnglishComponentRoute
   '/policy-brief': typeof PolicyBriefRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ad-campaign': typeof AdCampaignRoute
+  '/english-component': typeof EnglishComponentRoute
   '/policy-brief': typeof PolicyBriefRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/ad-campaign': typeof AdCampaignRoute
+  '/english-component': typeof EnglishComponentRoute
   '/policy-brief': typeof PolicyBriefRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ad-campaign' | '/policy-brief'
+  fullPaths: '/' | '/ad-campaign' | '/english-component' | '/policy-brief'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ad-campaign' | '/policy-brief'
-  id: '__root__' | '/' | '/ad-campaign' | '/policy-brief'
+  to: '/' | '/ad-campaign' | '/english-component' | '/policy-brief'
+  id: '__root__' | '/' | '/ad-campaign' | '/english-component' | '/policy-brief'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdCampaignRoute: typeof AdCampaignRoute
+  EnglishComponentRoute: typeof EnglishComponentRoute
   PolicyBriefRoute: typeof PolicyBriefRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdCampaignRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/english-component': {
+      id: '/english-component'
+      path: '/english-component'
+      fullPath: '/english-component'
+      preLoaderRoute: typeof EnglishComponentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/policy-brief': {
       id: '/policy-brief'
       path: '/policy-brief'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdCampaignRoute: AdCampaignRoute,
+  EnglishComponentRoute: EnglishComponentRoute,
   PolicyBriefRoute: PolicyBriefRoute,
 }
 export const routeTree = rootRouteImport
