@@ -18,9 +18,14 @@ function PolicyBrief() {
   return (
     <main className="mx-auto max-w-3xl px-5 py-16">
       <h1 className="text-4xl md:text-6xl">Policy Brief</h1>
-      <div className="mt-10 border-2 border-dashed bg-card p-8 text-muted-foreground">
-        Add your policy brief here — paste the text or send me the file and I'll add it.
-      </div>
+      <article aria-label="Power to the People policy brief" className="mt-10 space-y-6 text-lg leading-relaxed">
+        <p>
+          Implementing the Power to the People Policy (P Cubed) will make power more accessible to those across the United States. P Cubed promotes the expansion of existing energy assistance programs in order to give more struggling families basic energy and utility necessities. This will be executed by using the existing budget for energy as categorical grants to states. A condition of the categorical grant will be that funded programs will provide progressive utility aid that favors low-income households. This ensures that those most in need get the most attention from assistance programs. Furthermore, P Cubed will require applications and documentation for related programs to be streamlined. Many households, particularly those of immigrants, elderly, disabled, and children, struggle with or avoid filling out complicated and taxing application procedures (APPRISE Incorporated). By expediting the application process, P Cubed encourages more eligible households to get the assistance they need and qualify for.
+        </p>
+        <p>
+          Critics may argue that recognizing energy as a natural right would place unsustainable financial burdens on the federal government, increasing public spending and potentially worsening the national debt. However, the Power to the People Policy does not provide unlimited or free energy for all citizens. Instead, it establishes a minimum standard of energy access through targeted assistance and reforms to existing programs. By requiring a sustainable funding plan, the federal government can address energy insecurity without creating additional financial obligations.
+        </p>
+      </article>
     </main>
   );
 }
