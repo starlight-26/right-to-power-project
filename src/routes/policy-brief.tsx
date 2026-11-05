@@ -7,6 +7,8 @@ export const Route = createFileRoute("/policy-brief")({
       { name: "description", content: "Our policy brief for The Right to Power project." },
       { property: "og:title", content: "Policy Brief — The Right to Power" },
       { property: "og:description", content: "Our policy brief for The Right to Power project." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: PolicyBrief,

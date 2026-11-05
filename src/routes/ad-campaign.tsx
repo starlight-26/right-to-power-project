@@ -13,6 +13,8 @@ export const Route = createFileRoute("/ad-campaign")({
           "Two posters asking the public not to keep households in the dark on energy costs.",
       },
       { property: "og:title", content: "Ad Campaign — The Right to Power" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       {
         property: "og:description",
         content:
