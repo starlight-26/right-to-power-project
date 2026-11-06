@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdCampaignRouteImport } from './routes/ad-campaign'
 import { Route as EnglishComponentRouteImport } from './routes/english-component'
+import { Route as MathComponentRouteImport } from './routes/math-component'
 import { Route as PolicyBriefRouteImport } from './routes/policy-brief'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const EnglishComponentRoute = EnglishComponentRouteImport.update({
   path: '/english-component',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MathComponentRoute = MathComponentRouteImport.update({
+  id: '/math-component',
+  path: '/math-component',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PolicyBriefRoute = PolicyBriefRouteImport.update({
   id: '/policy-brief',
   path: '/policy-brief',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ad-campaign': typeof AdCampaignRoute
   '/english-component': typeof EnglishComponentRoute
+  '/math-component': typeof MathComponentRoute
   '/policy-brief': typeof PolicyBriefRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ad-campaign': typeof AdCampaignRoute
   '/english-component': typeof EnglishComponentRoute
+  '/math-component': typeof MathComponentRoute
   '/policy-brief': typeof PolicyBriefRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,38 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/ad-campaign': typeof AdCampaignRoute
   '/english-component': typeof EnglishComponentRoute
+  '/math-component': typeof MathComponentRoute
   '/policy-brief': typeof PolicyBriefRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ad-campaign' | '/english-component' | '/policy-brief'
+  fullPaths:
+    | '/'
+    | '/ad-campaign'
+    | '/english-component'
+    | '/math-component'
+    | '/policy-brief'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ad-campaign' | '/english-component' | '/policy-brief'
-  id: '__root__' | '/' | '/ad-campaign' | '/english-component' | '/policy-brief'
+  to:
+    | '/'
+    | '/ad-campaign'
+    | '/english-component'
+    | '/math-component'
+    | '/policy-brief'
+  id:
+    | '__root__'
+    | '/'
+    | '/ad-campaign'
+    | '/english-component'
+    | '/math-component'
+    | '/policy-brief'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdCampaignRoute: typeof AdCampaignRoute
   EnglishComponentRoute: typeof EnglishComponentRoute
+  MathComponentRoute: typeof MathComponentRoute
   PolicyBriefRoute: typeof PolicyBriefRoute
 }
 
@@ -92,6 +118,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnglishComponentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/math-component': {
+      id: '/math-component'
+      path: '/math-component'
+      fullPath: '/math-component'
+      preLoaderRoute: typeof MathComponentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/policy-brief': {
       id: '/policy-brief'
       path: '/policy-brief'
@@ -106,6 +139,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdCampaignRoute: AdCampaignRoute,
   EnglishComponentRoute: EnglishComponentRoute,
+  MathComponentRoute: MathComponentRoute,
   PolicyBriefRoute: PolicyBriefRoute,
 }
 export const routeTree = rootRouteImport
