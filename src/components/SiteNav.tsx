@@ -5,6 +5,7 @@ const links = [
   { to: "/policy-brief", label: "Policy Brief" },
   { to: "/ad-campaign", label: "Ad Campaign" },
   { to: "/english-component", label: "English Component" },
+  { to: "/math-component", label: "Math Component" },
 ] as const;
 
 export function SiteNav() {
