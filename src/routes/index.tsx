@@ -40,6 +40,10 @@ function Index() {
           <h2 className="text-2xl">English Component →</h2>
           <p className="mt-2 text-muted-foreground">Into the Wild: Cutting Off Connection.</p>
         </Link>
+        <Link to="/math-component" className="border-2 bg-card p-6 transition-transform hover:-translate-y-1">
+          <h2 className="text-2xl">Math Component →</h2>
+          <p className="mt-2 text-muted-foreground">Energy insecurity by income.</p>
+        </Link>
       </div>
     </main>
   );
