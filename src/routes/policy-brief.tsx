@@ -26,6 +26,17 @@ function PolicyBrief() {
           Critics may argue that recognizing energy as a natural right would place unsustainable financial burdens on the federal government, increasing public spending and potentially worsening the national debt. However, the Power to the People Policy does not provide unlimited or free energy for all citizens. Instead, it establishes a minimum standard of energy access through targeted assistance and reforms to existing programs. By requiring a sustainable funding plan, the federal government can address energy insecurity without creating additional financial obligations.
         </p>
       </article>
+      <div className="mt-10 border-t border-foreground/15 pt-8">
+        <a
+          href="https://docs.google.com/document/d/1Xzg0Kmzq0wMKhpJiPPJaZOMYK9hzhpQ1Nb6cf_ovxro/edit?usp=drivesdk"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex w-full items-center justify-center gap-2 border-2 border-foreground bg-accent px-6 py-3 font-display text-sm uppercase tracking-wider shadow-brutal transition-all hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none sm:w-auto"
+        >
+          Read the Full Paper <span aria-hidden="true">↗</span>
+        </a>
+        <p className="mt-4 text-sm text-muted-foreground">Expands on the policy brief and includes sources.</p>
+      </div>
     </main>
   );
 }
