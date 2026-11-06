@@ -116,7 +116,7 @@ function InstagramCarousel() {
 
       <div className="mt-4 flex items-center justify-between gap-4">
         <p className="text-sm font-medium" aria-live="polite">
-          {current + 1} / {instagramSlides.length} · {instagramSlides[current].name}
+          {current + 1} / {instagramSlides.length} · {instagramSlides[current]?.name}
         </p>
         <div className="flex gap-2" aria-label="Choose a carousel slide">
           {instagramSlides.map((slide, index) => (
